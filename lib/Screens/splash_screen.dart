@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'location.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -35,7 +36,20 @@ class _SplashScreenState extends State<SplashScreen> {
                 onPressed: () {
                   changeLanguage();
                 },
-                child: Text('buttonText'.tr()))
+                child: Text('buttonText'.tr())),
+            SizedBox(
+              height: 16,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return LocationScreen();
+                  },
+                ));
+              },
+              child: Icon(Icons.location_city_rounded),
+            )
           ],
         ),
       ),
